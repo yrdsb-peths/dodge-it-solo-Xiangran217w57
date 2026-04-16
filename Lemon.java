@@ -9,6 +9,13 @@ public class Lemon extends Actor
         if (getX() <= 0) {
             resetLemon();
         }
+        
+        if (isTouching(Hero.class)) {
+            // Add a gameover symbol
+            SmileFace smileFace = new SmileFace();
+            getWorld().addObject(smileFace, 300, 200);
+            getWorld().removeObject(this);
+        }
     }
     
     public void resetLemon()
